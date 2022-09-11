@@ -11,8 +11,10 @@ import java.util.*
 import kotlin.random.Random.Default.nextInt
 
 class MainActivity : AppCompatActivity() {
+    lateinit var myImage:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         var myButton: Button = findViewById(R.id.roll_button)
         myButton.text="Let's Roll"
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
            //Toast.makeText(this,"We are rolling", LENGTH_SHORT)
             rollDice()
         }
-
+        var myImage:ImageView = findViewById(R.id.drawable_resource)
     }
 
     private fun rollDice() {
@@ -38,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             else -> {R.drawable.dice_6}
         }
 
-        val myImage :ImageView = findViewById(R.id.drawable_resource)
+
          myImage.setImageResource(diceImage)
     }
 }
