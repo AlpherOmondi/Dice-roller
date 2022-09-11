@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Dice Roller</string>
     <string name="app_text">Roll</string>
+    <string name="snack_msg">Nice work</string>
 </resources>
