@@ -3,6 +3,7 @@ package com.example.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
@@ -23,9 +24,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice() {
-        var myText :TextView = findViewById(R.id.result_text)
+
 
         val randomInt = Random().nextInt()+1
-        myText.text=randomInt.toString()
+
+        val diceImage = when{
+            randomInt > 1000000 -> R.drawable.dice_1
+            randomInt < 0 -> R.drawable.dice_2
+            randomInt > 100000000-> R.drawable.dice_3
+            randomInt > 1000000 -> R.drawable.dice_4
+            randomInt > 10000 -> R.drawable.dice_5
+
+            else -> {R.drawable.dice_6}
+        }
+
+        val myImage :ImageView = findViewById(R.id.drawable_resource)
+         myImage.setImageResource(diceImage)
     }
 }
