@@ -4,11 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import java.util.*
-import kotlin.random.Random.Default.nextInt
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var myImage:ImageView
@@ -16,13 +13,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
-        var myButton: Button = findViewById(R.id.roll_button)
-        myButton.text="Let's Roll"
+        val myButton: Button = findViewById(R.id.roll_button)
+        myImage = findViewById(R.id.drawable_resource)
         myButton.setOnClickListener{
            //Toast.makeText(this,"We are rolling", LENGTH_SHORT)
             rollDice()
         }
-        var myImage:ImageView = findViewById(R.id.drawable_resource)
+
     }
 
     private fun rollDice() {
@@ -37,10 +34,9 @@ class MainActivity : AppCompatActivity() {
             randomInt > 1000000 -> R.drawable.dice_4
             randomInt > 10000 -> R.drawable.dice_5
 
-            else -> {R.drawable.dice_6}
+            else -> R.drawable.dice_6
         }
 
-
-         myImage.setImageResource(diceImage)
+        myImage.setImageResource(diceImage)
     }
 }
